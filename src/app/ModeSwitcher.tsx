@@ -25,7 +25,7 @@ export function ModeSwitcher() {
           onClick={() => handleSelect(opt.value)}
           className={clsx(
             'rounded px-3 py-1.5 transition-colors',
-            mode === opt.value ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-700',
+            mode === opt.value ? 'bg-brand-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-700',
           )}
         >
           {opt.label}

@@ -17,14 +17,14 @@ interface TableProps<T> {
 
 export function Table<T>({ columns, rows, rowKey, onRowClick, emptyMessage = '데이터가 없습니다.' }: TableProps<T>) {
   if (rows.length === 0) {
-    return <div className="rounded-lg border border-dashed border-slate-300 py-16 text-center text-sm text-slate-400">{emptyMessage}</div>
+    return <div className="rounded-xl border border-dashed border-slate-300 py-16 text-center text-sm text-slate-400">{emptyMessage}</div>
   }
 
   return (
-    <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+    <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
       <table className="w-full min-w-max text-left text-sm">
         <thead>
-          <tr className="border-b border-slate-200 bg-slate-50 text-xs font-semibold uppercase tracking-wide text-slate-500">
+          <tr className="border-b border-slate-200 bg-slate-50/80 text-xs font-semibold uppercase tracking-wide text-slate-500">
             {columns.map((col) => (
               <th key={col.key} className={`whitespace-nowrap px-4 py-3 ${col.className ?? ''}`}>
                 {col.header}

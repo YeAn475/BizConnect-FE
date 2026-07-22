@@ -6,7 +6,9 @@ export interface ChatroomListItem {
   createdByName: string
   status: ChatroomStatus
   createdAt: string
-  isJoined: boolean
+  // Backend field is `boolean isJoined` but Lombok/Jackson serialize a boolean
+  // getter isXxx() by stripping the "is" prefix, so the JSON key is "joined".
+  joined: boolean
 }
 
 export interface MessageHistoryItem {

@@ -2,6 +2,20 @@
 
 @theme {
   --font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Brand blue ramp (sequential, light -> dark) used for primary actions,
+     active nav states, and the sidebar's dark surface. */
+  --color-brand-50: #eef5fd;
+  --color-brand-100: #cde2fb;
+  --color-brand-200: #9ec5f4;
+  --color-brand-300: #6da7ec;
+  --color-brand-400: #3987e5;
+  --color-brand-500: #2a78d6;
+  --color-brand-600: #256abf;
+  --color-brand-700: #184f95;
+  --color-brand-800: #104281;
+  --color-brand-900: #0d366b;
+  --color-brand-950: #0a2a55;
 }
 
 * {

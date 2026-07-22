@@ -3,8 +3,8 @@ import { AppShell } from './AppShell'
 import { AuthLayout } from './AuthLayout'
 import { RequireAuth } from './RequireAuth'
 import { RootErrorBoundary } from './RootErrorBoundary'
-import { IndexRedirect } from './IndexRedirect'
 
+import { DashboardPage } from '@/features/dashboard/DashboardPage'
 import { LoginPage } from '@/features/auth/LoginPage'
 import { SignupPage } from '@/features/auth/SignupPage'
 
@@ -21,7 +21,8 @@ import { FriendSearchPage } from '@/features/friend/FriendSearchPage'
 import { FriendRequestsPage } from '@/features/friend/FriendRequestsPage'
 import { FriendDetailPage } from '@/features/friend/FriendDetailPage'
 
-import { ChatroomListPage } from '@/features/chat/ChatroomListPage'
+import { ChatLayout } from '@/features/chat/ChatLayout'
+import { ChatEmptyState } from '@/features/chat/ChatEmptyState'
 import { ChatroomDetailPage } from '@/features/chat/ChatroomDetailPage'
 
 import { NoticeListPage } from '@/features/notice/NoticeListPage'
@@ -69,7 +70,7 @@ export const router = createBrowserRouter([
       {
         element: <AppShell />,
         children: [
-          { index: true, element: <IndexRedirect /> },
+          { index: true, element: <DashboardPage /> },
           { path: '/profile', element: <ProfilePage /> },
 
           { path: '/company', element: <CompanyInfoPage /> },
@@ -83,8 +84,14 @@ export const router = createBrowserRouter([
           { path: '/friends/requests', element: <FriendRequestsPage /> },
           { path: '/friends/:userNo', element: <FriendDetailPage /> },
 
-          { path: '/chat', element: <ChatroomListPage /> },
-          { path: '/chat/:chatroomNo', element: <ChatroomDetailPage /> },
+          {
+            path: '/chat',
+            element: <ChatLayout />,
+            children: [
+              { index: true, element: <ChatEmptyState /> },
+              { path: ':chatroomNo', element: <ChatroomDetailPage /> },
+            ],
+          },
 
           { path: '/notices', element: <NoticeListPage /> },
           { path: '/notices/new', element: <NoticeFormPage /> },

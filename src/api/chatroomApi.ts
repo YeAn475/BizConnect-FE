@@ -3,11 +3,11 @@ import type { ChatroomListItem } from '@/types/chat'
 import type { MessageResponse, PageParams } from '@/types/common'
 
 export const chatroomApi = {
-  create: (name: string) =>
+  create: (name: string, inviteeUserNos: number[] = []) =>
     client
       .post<{ chatroomNo: number; name: string; createdByName: string; createdAt: string; message: string }>(
         '/chatroom',
-        { name },
+        { name, inviteeUserNos },
       )
       .then((r) => r.data),
   rename: (chatroomNo: number, name: string) =>
